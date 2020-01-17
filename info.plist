@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>me.ebihara.openiniterm</string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>8C9182BD-B63A-4A2E-BCD2-1BBB96911D2A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>450D4046-D616-48EE-9614-1B0FBD7D8DC9</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>kebhr</string>
+	<key>description</key>
+	<string>Open selected directory in iTerm</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>OpenIniTerm</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>oiterm</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Open in iTerm</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>8C9182BD-B63A-4A2E-BCD2-1BBB96911D2A</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)	tell application "Finder"		if exists Finder window 1 then			set current to target of Finder window 1 as alias		else			set current to desktop as alias		end if	end tell		tell application "iTerm"		create window with default profile				tell current window			tell current session of current tab				write text "cd \"" &amp; (POSIX path of current) &amp; "\""			end tell		end tell	end tellend alfred_script</string>
+				<key>cachescript</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>450D4046-D616-48EE-9614-1B0FBD7D8DC9</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>450D4046-D616-48EE-9614-1B0FBD7D8DC9</key>
+		<dict>
+			<key>xpos</key>
+			<integer>350</integer>
+			<key>ypos</key>
+			<integer>295</integer>
+		</dict>
+		<key>8C9182BD-B63A-4A2E-BCD2-1BBB96911D2A</key>
+		<dict>
+			<key>xpos</key>
+			<integer>200</integer>
+			<key>ypos</key>
+			<integer>295</integer>
+		</dict>
+	</dict>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>1.0.0</string>
+	<key>webaddress</key>
+	<string>https://twitter.com/kebhr_</string>
+</dict>
+</plist>
